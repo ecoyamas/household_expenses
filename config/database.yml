@@ -15,12 +15,12 @@
 # gem 'pg'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  host: db
-  username: postgres
-  password: password
+  adapter: mysql2
+  encoding: utf8
   pool: 5
+  username: root
+  password: password
+  host: db
 
 development:
   <<: *default

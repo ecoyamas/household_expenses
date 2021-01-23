@@ -1,24 +1,21 @@
-# README
+# Docker
+## コンテナ起動・停止
+```
+docker-compose start
+docker-compose stop
+```
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## コンテナ再構築
+```
+docker-compose build
+```
 
-Things you may want to cover:
+## コンテナ作成・開始
+```
+docker-compose up
+```
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## コンテナ内にbashで入る
+```
+docker exec -i -t コンテナ名 bash
+```
