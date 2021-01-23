@@ -1,3 +1,3 @@
 class IncomesController < ApplicationController
-    def index; end
+  def index; end
 end
