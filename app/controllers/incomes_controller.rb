@@ -1,13 +1,19 @@
 class IncomesController < ApplicationController
-  def index; end
+  def index
+    @incomes = Income.all
+  end
 
   def new
     @income = Income.new
   end
 
   def create
-    income = Income.new(income_params)
-    income.save
+    @income = Income.new(income_params)
+    if @income.save
+      redirect_to incomes_path, notice: 'Success!'
+    else
+      render "new"
+    end
   end
 
   private

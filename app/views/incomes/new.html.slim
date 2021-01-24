@@ -1,39 +1,16 @@
-= form_for @income, :html => { class: "ui form"} do |f|
-  = f.text_field :title, placeholder: "タイトル"
-  = f.text_field :salary, placeholder: "収入"
-  = f.date_select :salary_date, placeholder: "日付"
-  = f.submit "収入作成", class: "btn"
-
-.ui.inverted.segment
-  button.ui.inverted.button
-    | Standard
-  button.ui.inverted.primary.button
-    | Primary
-  button.ui.inverted.secondary.button
-    | Secondary
-  button.ui.inverted.red.button
-    | Red
-  button.ui.inverted.orange.button
-    | Orange
-  button.ui.inverted.yellow.button
-    | Yellow
-  button.ui.inverted.olive.button
-    | Olive
-  button.ui.inverted.green.button
-    | Green
-  button.ui.inverted.teal.button
-    | Teal
-  button.ui.inverted.blue.button
-    | Blue
-  button.ui.inverted.violet.button
-    | Violet
-  button.ui.inverted.purple.button
-    | Purple
-  button.ui.inverted.pink.button
-    | Pink
-  button.ui.inverted.brown.button
-    | Brown
-  button.ui.inverted.grey.button
-    | Grey
-  button.ui.inverted.black.button
-    | Black
+div.income-form
+  h1 Create Income
+  = render 'layouts/error_messages', model: @income
+  div.form-area
+    = form_for @income, :html => { class: "ui form"} do |f|
+      .field
+        = f.label :title
+        = f.text_field :title
+      .field
+        = f.label :salary
+        = f.text_field :salary
+      .field
+        = f.label :salaly_date
+        = f.date_field :salary_date
+      .button-area
+        = f.submit "Create", class: "ui inverted primary button"
