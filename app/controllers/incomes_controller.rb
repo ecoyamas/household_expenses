@@ -3,6 +3,10 @@ class IncomesController < ApplicationController
     @incomes = Income.all
   end
 
+  def show
+    @income = Income.find(params[:id])
+  end
+
   def new
     @income = Income.new
   end
@@ -13,6 +17,24 @@ class IncomesController < ApplicationController
       redirect_to incomes_path, notice: 'Success!'
     else
       render 'new'
+    end
+  end
+
+  def edit
+    @income = Income.find(params[:id])
+  end
+
+  def update
+    income = Income.find(params[:id])
+    income.update(income_params)
+  end
+
+  def destroy
+    income = Income.find(params[:id])
+    if income.destroy
+      redirect_to incomes_path, notice: 'Success!'
+    else
+      redirect_to incomes_path, notice: 'Failed!'
     end
   end
 

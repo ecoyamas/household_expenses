@@ -1,0 +1,6 @@
+h1 Income Show
+li= @income.title
+li= @income.salary
+li= @income.salary_date
+
+= link_to "削除", "#{@income.id}", method: :delete
