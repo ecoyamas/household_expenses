@@ -1,0 +1,18 @@
+.header
+input#openSidebarMenu.openSidebarMenu[type="checkbox"]
+label.sidebarIconToggle[for="openSidebarMenu"]
+  .spinner.diagonal.part-1
+  .spinner.horizontal
+  .spinner.diagonal.part-2
+#sidebarMenu
+  ul.sidebarMenuInner
+    li
+      | Dashboard
+    li
+      = link_to 'Income', incomes_path
+    li
+      a[href="#" target="_blank"]
+        | Expense
+    li
+      a[href="#" target="_blank"]
+        | Categoly
