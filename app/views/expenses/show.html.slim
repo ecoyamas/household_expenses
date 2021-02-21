@@ -1,0 +1,6 @@
+h1 Expense Show
+li= @expense.title
+li= @expense.price
+li= @expense.using_date
+
+= link_to "削除", "#{@expense.id}", method: :delete

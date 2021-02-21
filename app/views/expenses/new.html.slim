@@ -1,0 +1,16 @@
+div.income-form
+  h1 Expense Income
+  = render 'layouts/error_messages', model: @expense
+  div.form-area
+    = form_for @expense, :html => { class: "ui form"} do |f|
+      .field
+        = f.label :title
+        = f.text_field :title
+      .field
+        = f.label :price
+        = f.text_field :price
+      .field
+        = f.label :using_date
+        = f.date_field :using_date
+      .button-area
+        = f.submit "Create", class: "ui inverted primary button"
