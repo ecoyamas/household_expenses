@@ -10,18 +10,21 @@ apt-get update && apt-get install -y yarn
 RUN curl -sL https://deb.nodesource.com/setup_7.x | bash - && \
 apt-get install nodejs
 
-RUN mkdir /myapp
-WORKDIR /myapp
-COPY Gemfile /myapp/Gemfile
-COPY Gemfile.lock /myapp/Gemfile.lock
+ENV HOME="/app" \
+    LANG=C.UTF-8 \
+    TZ=Asia/Tokyo
+
+WORKDIR ${HOME}
+
+ADD Gemfile ${HOME}/Gemfile
+ADD Gemfile.lock ${HOME}/Gemfile.lock
 RUN bundle install
 COPY . /myapp
 
-# Add a script to be executed every time the container starts.
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+ADD . ${HOME}
+
+# ポート3000番をあける
 EXPOSE 3000
 
-# Start the main process.
-CMD ["rails", "server", "-b", "0.0.0.0"]
+# コマンドを実行
+CMD ["bundle", "exec", "rails", "s", "puma", "-b", "0.0.0.0", "-p", "3000", "-e", "development"]
